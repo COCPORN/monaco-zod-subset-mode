@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monaco Zod Subset Mode</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs/editor/editor.main.css">
+</head>
+<body>
+
+<div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs/loader.js"></script>
+<script src="../dist/bundle.js"></script>
+<script>
+  require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs' }});
+  require(['vs/editor/editor.main'], function() {
+    const code = `z.object({
+  name: z.string().min(1),
+  age: z.number().int().optional(),
+  email: z.string().email(), // .email() is not supported yet
+  isAdmin: z.boolean(),
+  role: z.enum(['admin', 'user']),
+  posts: z.array(z.string()),
+  profile: z.object({
+    bio: z.string(),
+  }),
+  tags: z.tuple([z.string(), z.number()]),
+  mixed: z.union([z.string(), z.number()]),
+});
+`;
+
+    monacoZodSubset.registerZodSubsetLanguage(monaco);
+
+    monaco.editor.create(document.getElementById('container'), {
+      value: code,
+      language: 'zod-subset'
+    });
+  });
+</script>
+</body>
+</html>

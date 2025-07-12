@@ -11,8 +11,8 @@ A custom language definition and mode for the Monaco Editor that enables syntax 
 ## Getting Started
 
 1. Install dependencies: `pnpm install`
-2. Build the project: `pnpm build`
-3. Bundle the code: `pnpm bundle`
+2. Build the project: `pnpm build && pnpm bundle`
+3. To test the editor, run a local web server from the project root (e.g., `python -m http.server`) and open `example/index.html` in your browser.
 
 ## License
 
