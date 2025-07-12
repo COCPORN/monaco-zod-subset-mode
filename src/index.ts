@@ -13,7 +13,7 @@ export function registerZodSubsetLanguage(monacoInstance: typeof monaco) {
   // Register a tokens provider for the language
   monacoInstance.languages.setMonarchTokensProvider(languageId, {
     keywords: [
-      'z', 'string', 'number', 'boolean', 'literal', 'enum', 'array', 'object', 'union', 'tuple'
+      'z', 'string', 'number', 'boolean', 'literal', 'enum', 'array', 'object', 'union', 'tuple', 'null', 'undefined'
     ],
     tokenizer: {
       root: [
@@ -51,7 +51,7 @@ export function registerZodSubsetLanguage(monacoInstance: typeof monaco) {
           range: range
         })),
         ...[
-          'min', 'max', 'int', 'optional', 'nullable', 'email'
+          'min', 'max', 'int', 'optional', 'nullable', 'email', 'url', 'uuid', 'regex', 'positive', 'negative', 'describe'
         ].map(keyword => ({
           label: keyword,
           kind: monaco.languages.CompletionItemKind.Method,

@@ -4,14 +4,24 @@ import commonjs from '@rollup/plugin-commonjs';
 
 export default {
   input: 'src/index.ts',
-  output: {
-    file: 'dist/bundle.js',
-    format: 'iife',
-    name: 'monacoZodSubset',
-    globals: {
-      'monaco-editor': 'monaco'
+  output: [
+    {
+      file: 'dist/index.cjs.js',
+      format: 'cjs',
+    },
+    {
+      file: 'dist/index.esm.js',
+      format: 'esm',
+    },
+    {
+      file: 'dist/bundle.js',
+      format: 'iife',
+      name: 'monacoZodSubset',
+      globals: {
+        'monaco-editor': 'monaco'
+      }
     }
-  },
+  ],
   external: ['monaco-editor'],
   plugins: [
     typescript(),

@@ -1,9 +1,15 @@
 {
   "name": "monaco-zod-subset-mode",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A custom language definition and mode for the Monaco Editor that enables syntax highlighting, validation, and autocompletion for a subset of Zod schemas.",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
     "bundle": "rollup -c",
@@ -35,3 +41,4 @@
     "typescript": "^5.8.3"
   }
 }
+    

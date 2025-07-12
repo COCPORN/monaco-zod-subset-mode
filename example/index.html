@@ -17,17 +17,19 @@
     script.src = '../dist/bundle.js';
     script.onload = () => {
       const code = `z.object({
-        name: z.string().min(1),
-        age: z.number().int().optional(),
+        name: z.string().min(1).describe("The user's name"),
+        age: z.number().int().positive().optional(),
         email: z.string().email(),
-        isAdmin: z.boolean(),
+        website: z.string().url().nullable(),
+        id: z.string().uuid(),
         role: z.enum(['admin', 'user']),
-        posts: z.array(z.string()),
+        posts: z.array(z.string()).min(1),
         profile: z.object({
           bio: z.string(),
         }),
         tags: z.tuple([z.string(), z.number()]),
         mixed: z.union([z.string(), z.number()]),
+        status: z.union([z.literal('active'), z.literal('inactive'), z.null()]),
       });
       `;
 
