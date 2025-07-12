@@ -19,7 +19,7 @@
       const code = `z.object({
         name: z.string().min(1),
         age: z.number().int().optional(),
-        email: z.string().email(), // .email() is not supported yet
+        email: z.string().email(),
         isAdmin: z.boolean(),
         role: z.enum(['admin', 'user']),
         posts: z.array(z.string()),
