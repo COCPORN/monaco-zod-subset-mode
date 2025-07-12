@@ -6,8 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "bundle": "esbuild src/index.ts --bundle --outfile=dist/bundle.js --format=iife --global-name=monacoZodSubset --external:monaco-editor",
-    "prepublishOnly": "pnpm build && pnpm bundle",
+    "bundle": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -26,8 +25,13 @@
     "monaco-editor": "^0.52.2"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "^24.0.13",
     "esbuild": "^0.25.6",
+    "rollup": "^4.45.0",
+    "tslib": "^2.8.1",
     "typescript": "^5.8.3"
   }
 }

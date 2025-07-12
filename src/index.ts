@@ -51,7 +51,7 @@ export function registerZodSubsetLanguage(monacoInstance: typeof monaco) {
           range: range
         })),
         ...[
-          'min', 'max', 'int', 'optional', 'nullable'
+          'min', 'max', 'int', 'optional', 'nullable', 'email'
         ].map(keyword => ({
           label: keyword,
           kind: monaco.languages.CompletionItemKind.Method,
